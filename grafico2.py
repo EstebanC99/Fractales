@@ -11,7 +11,8 @@ _, binaria = cv2.threshold(imagen_gris, 225, 255, cv2.THRESH_BINARY_INV)
 plt.imshow(binaria, cmap="gray")
 plt.show()
 
-contornos, _ = cv2.findContours(binaria, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contornos, _ = cv2.findContours(binaria, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+
 
 imagen_original = cv2.drawContours(imagen_original, contornos, -1, (0, 255, 0), 2)
 
