@@ -50,6 +50,3 @@ def ObtenerDimension(I):
 
     #MUESTRA DE LOS DATOS OBTENIDOS
     return fractal_dimension(imagen_2Canales), (np.log(3)/np.log(2))
-    #print("Dimension de Minkowski–Bouligand calculada: ", fractal_dimension(imagen_2Canales))
-    #print("Dimension teorica de Haussdorf:        ", (np.log(3)/np.log(2)))
-    #print("Tal como se ve, un objeto tiene dimension fractal si esta es menor a la dimension de Haussdorf")
