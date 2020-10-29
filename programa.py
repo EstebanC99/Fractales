@@ -8,9 +8,12 @@ def MostrarDatos(B, H):
     print("Tal como se ve, un objeto tiene dimension fractal si esta es menor a la dimension de Haussdorf")
 
 
-try: 
+direccion = input('Ingrese ubicacion de la imagen:')
+if 'Recursos/' not in direccion: direccion = 'Recursos/' + direccion
+
+try:  
     #LLAMADA A LA FUNCION DE CARGAR IMAGEN Y OBTENER CONTORNOS
-    cadena_gris = gr.CargarImagen(input('Ingrese ubicacion de la imagen:'))
+    cadena_gris = gr.CargarImagen(direccion)
 
     #OBTENCION DE LOS VALORES DE DIMENSION FRACTAL
     box_counting, haussdorf = dim.ObtenerDimension(cadena_gris)
