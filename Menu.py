@@ -31,10 +31,9 @@ class fractales(QMainWindow):
         self.buttonCalcularDimension.clicked.connect(self.Click)
         
 
-def Iniciar():
-    if __name__=='__main__':
-        app=QApplication(sys.argv)
-        GUI = fractales()
-        GUI.show()
-        pr.Borrar('gris.png')
-        sys.exit(app.exec_())
+if __name__=='__main__':
+    app=QApplication(sys.argv)
+    GUI = fractales()
+    GUI.show()
+    pr.Borrar('gris.png')
+    sys.exit(app.exec_())
