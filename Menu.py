@@ -4,20 +4,20 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.QtGui import QPixmap
 
-class ejemplo_prueba(QMainWindow):
+class fractales(QMainWindow):
 
 
     def Click(self):
         def CambiarImagen():
-            imagen = QPixmap('Recursos/' + self.comboBox.currentText())
-            imagen.scaledToWidth(800)
-            imagen.scaledToHeight(600)
-            self.label2.resize(imagen.width(), imagen.height())
-            self.label2.setPixmap(imagen)
+            imagen = QPixmap('gris.png')
+            imagen.scaledToWidth(281)
+            imagen.scaledToHeight(271)
+            self.labelImagen.resize(281, 271)
+            self.labelImagen.setPixmap(imagen)
             
         
         cantidad = pr.ejecutar(self.comboBox.currentText())
-        self.label.setText(str(cantidad)[:6])
+        self.labelDimension.setText(str(cantidad)[:6])
         CambiarImagen()
 
     
@@ -26,12 +26,15 @@ class ejemplo_prueba(QMainWindow):
         super().__init__()
         uic.loadUi("GUI.menu.ui",self)
         self.comboBox.addItems(['Australia.jpg', 'ReinoUnido.jpg', 'BuenosAires.jpg'])
-        self.pushButton.clicked.connect(self.Click)
+        self.labelDimension.setText('')
+        self.labelImagen.setText('')
+        self.buttonCalcularDimension.clicked.connect(self.Click)
         
 
-
-if __name__=='__main__':
-    app=QApplication(sys.argv)
-    GUI = ejemplo_prueba()
-    GUI.show()
-    sys.exit(app.exec_())
+def Iniciar():
+    if __name__=='__main__':
+        app=QApplication(sys.argv)
+        GUI = fractales()
+        GUI.show()
+        pr.Borrar('gris.png')
+        sys.exit(app.exec_())

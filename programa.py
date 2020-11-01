@@ -2,6 +2,12 @@ import grafico as gr
 import dimension as dim
 from os import remove, path, system
 
+def Borrar(gris):
+    #ESTA LINEA BORRA LA IMAGEN TEMPORAL DE CONTORNOS CREADA
+    if path.exists(gris): remove(gris) 
+
+
+
 def ejecutar(direc):
     
     
@@ -15,10 +21,6 @@ def ejecutar(direc):
 
         #OBTENCION DE LOS VALORES DE DIMENSION FRACTAL
         box_counting, haussdorf = dim.ObtenerDimension(cadena_gris)
-
-
-        #ESTA LINEA BORRA LA IMAGEN TEMPORAL DE CONTORNOS CREADA
-        if path.exists(cadena_gris): remove(cadena_gris) 
 
         #DEVUELVE DIMENSION FRACTAL
         return (box_counting)
