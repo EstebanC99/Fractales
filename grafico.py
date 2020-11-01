@@ -32,6 +32,8 @@ def CargarImagen(path):
 
     #MUESTRA DE LA IMAGEN FINAL
     cv2.imwrite('gris.png', imagen_blanca)
+    plt.imshow(binaria, cmap="gray")
+    plt.savefig("grafico.png", bbox_inches='tight')
 
     return 'gris.png'
 

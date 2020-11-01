@@ -2,9 +2,10 @@ import grafico as gr
 import dimension as dim
 from os import remove, path, system
 
-def Borrar(gris):
+def Borrar(gris, grafico):
     #ESTA LINEA BORRA LA IMAGEN TEMPORAL DE CONTORNOS CREADA
     if path.exists(gris): remove(gris) 
+    if path.exists(grafico): remove(grafico) 
 
 
 
