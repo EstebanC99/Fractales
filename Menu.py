@@ -1,10 +1,12 @@
 import sys
+import os, os.path
 import programa as pr
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.QtGui import QPixmap
 
 class fractales(QMainWindow):
+
 
     def CambiarImagenOriginal(self, costa):
         if costa != None: 
@@ -32,8 +34,8 @@ class fractales(QMainWindow):
         cantidad = pr.ejecutar(costa)
         self.labelDimension.setText(str(cantidad)[:6])
         self.CambiarImagenOriginal(costa)
-        self.CambiarImagenContorno('grafico.png')
-        self.CambiarImagenGris('gris.png')
+        self.CambiarImagenContorno('gris.png')
+        self.CambiarImagenGris('grafico.png')
 
     def LimpiarElementos(self):
         self.labelDimension.setText('')
@@ -63,18 +65,20 @@ class fractales(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("Interfaz/Interface.ui",self)
-        self.comboBoxRegion.addItems(['Australia.jpg', 'ReinoUnido.jpg', 'BuenosAires.jpg'])
+        self.comboBoxRegion.addItems(os.listdir('Recursos'))
         self.labelDimension.setText('')
         self.buttonCalcularDimension.clicked.connect(self.Click)
         self.comboBoxRegion.currentIndexChanged.connect(self.CambiarRegion)
         self.commandButtonSiguiente.clicked.connect(self.SiguienteIntegrante)
         self.commandButtonSiguiente2.clicked.connect(self.SiguienteHerramienta)
         self.commandButtonSiguiente3.clicked.connect(self.SiguienteNosotros)
+    
+    def __del__(self):
+        pr.Borrar('gris.png', 'grafico.png')
         
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
     GUI = fractales()
     GUI.show()
-    pr.Borrar('gris.png', 'grafico.png')
     sys.exit(app.exec_())
