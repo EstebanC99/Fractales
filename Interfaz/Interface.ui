@@ -530,7 +530,7 @@
       <widget class="QSlider" name="horizontalSlider">
        <property name="geometry">
         <rect>
-         <x>130</x>
+         <x>120</x>
          <y>80</y>
          <width>160</width>
          <height>22</height>
@@ -557,6 +557,38 @@
        </property>
        <property name="text">
         <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelColor_2">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>80</y>
+         <width>21</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="labelColor_3">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>80</y>
+         <width>31</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>255</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -1887,7 +1919,7 @@
               </rect>
              </property>
              <property name="text">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Información de contacto&lt;/p&gt;&lt;p&gt;Legajo: 45927&lt;br/&gt;Correo: martinoficialdegui@gmail.com&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Información de contacto&lt;/p&gt;&lt;p&gt;Legajo: 45927&lt;br/&gt;Correo: martinoficialdegui@hotmail.com&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="scaledContents">
               <bool>false</bool>
