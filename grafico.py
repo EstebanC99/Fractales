@@ -20,11 +20,14 @@ def CargarImagen(path):
 
 
     #CREACION DE IMAGEN BINARIA DE GRIS
+    #_, binaria = cv2.threshold(imagen_gris, 85, 255, cv2.THRESH_BINARY_INV) #--> Ejemplo para mar Caspio
     _, binaria = cv2.threshold(imagen_gris, 220, 255, cv2.THRESH_BINARY_INV)
 
 
     #EXTRACCION DEL CONTORNO DE LA IMAGEN
-    contornos, _ = cv2.findContours(binaria, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    #contornos, _ = cv2.findContours(binaria, cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE) #--> Trae todos los contornos, inclusive los interiores
+    contornos, _ = cv2.findContours(binaria, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) #--> Trae contornos exteriores
+    
 
     #DIBUJA EL CONTORNO SOBRE EL FONDO BLANCO
     imagen_blanca = cv2.drawContours(imagen_blanca, contornos, -1, (0, 0, 0), 1)
