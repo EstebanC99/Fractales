@@ -5,7 +5,7 @@ import numpy as np
 
 
 #CARGAMOS IMAGENES
-def CargarImagen(path):
+def CargarImagen(path, color):
     
     def ConvertirAGris(IO):
         #CONVERTIMOS DE BGR A RGB Y A GRIS
@@ -20,8 +20,7 @@ def CargarImagen(path):
 
 
     #CREACION DE IMAGEN BINARIA DE GRIS
-    #_, binaria = cv2.threshold(imagen_gris, 85, 255, cv2.THRESH_BINARY_INV) #--> Ejemplo para mar Caspio
-    _, binaria = cv2.threshold(imagen_gris, 220, 255, cv2.THRESH_BINARY_INV)
+    _, binaria = cv2.threshold(imagen_gris, color, 255, cv2.THRESH_BINARY_INV)
 
 
     #EXTRACCION DEL CONTORNO DE LA IMAGEN

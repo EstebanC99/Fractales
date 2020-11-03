@@ -9,7 +9,7 @@ def Borrar(gris, grafico):
 
 
 
-def ejecutar(direc):
+def ejecutar(direc, color):
     
     
     system("cls")
@@ -18,7 +18,7 @@ def ejecutar(direc):
 
     try:  
         #LLAMADA A LA FUNCION DE CARGAR IMAGEN Y OBTENER CONTORNOS
-        cadena_gris = gr.CargarImagen(direccion)
+        cadena_gris = gr.CargarImagen(direccion, color)
 
         #OBTENCION DE LOS VALORES DE DIMENSION FRACTAL
         box_counting, haussdorf = dim.ObtenerDimension(cadena_gris)

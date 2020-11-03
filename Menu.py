@@ -31,7 +31,7 @@ class fractales(QMainWindow):
     
     def Click(self):       
         costa = self.comboBoxRegion.currentText()
-        cantidad = pr.ejecutar(costa)
+        cantidad = pr.ejecutar(costa, self.horizontalSlider.value())
         self.labelDimension.setText(str(cantidad)[:6])
         self.CambiarImagenOriginal(costa)
         self.CambiarImagenContorno('gris.png')
@@ -60,18 +60,24 @@ class fractales(QMainWindow):
         actual = self.stackedNosotros.currentIndex()
         if actual == 1: actual = -1
         self.stackedNosotros.setCurrentIndex(actual + 1)
-    
+          
+    def CambioValorColor(self):
+        color = str(self.horizontalSlider.value())
+        self.labelColor.setText(color)
 
     def __init__(self):
         super().__init__()
         uic.loadUi("Interfaz/Interface.ui",self)
-        self.comboBoxRegion.addItems(os.listdir('Recursos'))
+        archivos = dict(zip(os.listdir('Recursos'), [225]*len(os.listdir('Recursos'))))
+        self.comboBoxRegion.addItems(archivos.keys())
         self.labelDimension.setText('')
         self.buttonCalcularDimension.clicked.connect(self.Click)
         self.comboBoxRegion.currentIndexChanged.connect(self.CambiarRegion)
         self.commandButtonSiguiente.clicked.connect(self.SiguienteIntegrante)
         self.commandButtonSiguiente2.clicked.connect(self.SiguienteHerramienta)
         self.commandButtonSiguiente3.clicked.connect(self.SiguienteNosotros)
+        self.horizontalSlider.valueChanged.connect(self.CambioValorColor)
+        self.horizontalSlider.setValue(225)
     
     def __del__(self):
         pr.Borrar('gris.png', 'grafico.png')
